@@ -16,8 +16,8 @@ pipeline{
         }
         stage('copy war file and dockerfile'){
             steps{
-                sh "scp /var/lib/jenkins/workspace/hello_private/webapp/target/*.war jenkins@${params.ansible_server}:/home/ansadmin"
-                sh "scp Dockerfile jenkins@${params.ansible_server}:/home/ansadmin"
+                sh "scp /var/lib/jenkins/workspace/hello_private/webapp/target/*.war jenkins@${params.ansible_server}:/home/jenkins"
+                sh "scp Dockerfile jenkins@${params.ansible_server}:/home/jenkins"
             }
         }
         stage('run ansible-playbook'){
