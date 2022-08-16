@@ -4,7 +4,10 @@ pipeline{
     parameters{
         string(name: 'ansible_server', defaultValue: '172.31.42.119', description: 'docker Server')
     }
-
+    
+    triggers{
+	pollSCM('* * * * *')
+    } 
     stages{
         stage('build'){
             steps{
